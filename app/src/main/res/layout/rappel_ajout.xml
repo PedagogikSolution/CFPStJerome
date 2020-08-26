@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_ajout_rappel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Ajouter un rappel avec notification"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:hint="Entre un titre pour ton rappel"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+             />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:hint="Rajoute des notes personnelles concernant ce rappel."
+            />
+			
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/tv_date_rappel"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:text="Choisis une date"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/ib_date_rappel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_edit"
+                android:gravity="right"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/tv_time_rappel"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:text="Choisis une heure"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/ib_time_rappel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_edit"
+                android:gravity="right"
+                 />
+        </LinearLayout>
+        
+        <Button 
+            android:id="@+id/bt_ajouter_rappel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="Ajouter"/>
+        
+    </LinearLayout>
+
+</ScrollView>

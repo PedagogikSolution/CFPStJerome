@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+         />
+
+    <TextView
+        android:id="@+id/tvSpVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="version 1.0" />
+
+    <TextView        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp1"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/bt_sp1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_bt1" />
+
+    <TextView        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp2"
+         android:gravity="center"
+         android:layout_margin="10dp"
+         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/bt_sp2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_bt2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tous droits réservés © Solution Pedagogik inc."
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
+
+</LinearLayout>
+</ScrollView> 

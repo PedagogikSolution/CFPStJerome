@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      >
+    <item
+        android:id="@+id/ajouter_rappel"
+        android:title="Ajouter"
+        android:icon="@drawable/ic_action_new"
+         />
+    <item
+        android:id="@+id/delete_rappel"
+        android:title="Retirer"
+        android:icon="@drawable/ic_action_cancel"
+         />
+   
+</menu>

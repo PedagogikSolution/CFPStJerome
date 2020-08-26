@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "10909297211",
+    "firebase_url": "https://cfp-st-jerome.firebaseio.com",
+    "project_id": "cfp-st-jerome",
+    "storage_bucket": "cfp-st-jerome.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10909297211:android:92eefd7dde7885637fca1e",
+        "android_client_info": {
+          "package_name": "com.pedagogiksolution.CFPStJerome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10909297211-h4mrc48901l4005cll853rt7ght9osdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVGjQM_P4KVNhrV8TZqAfzttRgQOHELXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10909297211-h4mrc48901l4005cll853rt7ght9osdp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

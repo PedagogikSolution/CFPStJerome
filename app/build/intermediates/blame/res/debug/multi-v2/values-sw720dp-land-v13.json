@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\franc\\Documents\\CFPStJerome\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-land-v13\\values-sw720dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\franc\\Documents\\CFPStJerome\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "from": {
+                        "startLines": "5,6,3,2,4",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "244,380,116,57,176",
+                        "endColumns": "134,113,58,57,66",
+                        "endOffsets": "374,489,170,110,238"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "114,249,363,422,480",
+                        "endColumns": "134,113,58,57,66",
+                        "endOffsets": "244,358,417,475,542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\franc\\Documents\\CFPStJerome\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "from": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "205",
+                        "endColumns": "58",
+                        "endOffsets": "259"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        }
+    ]
+}

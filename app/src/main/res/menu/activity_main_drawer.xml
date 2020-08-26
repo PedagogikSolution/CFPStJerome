@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:id="@+id/nav_cat_general"
+        android:title="Général">
+        <menu>
+            <item
+                android:id="@+id/nav_accueil"
+                android:icon="@drawable/accueil"
+                android:title="Accueil" />
+            <item
+                android:id="@+id/nav_nouvelles"
+                android:icon="@drawable/nouvelle"
+                android:title="Nouvelles" />
+            <item
+                android:id="@+id/nav_notification"
+                android:icon="@drawable/notification"
+                android:title="Notifications" />
+            <item
+                android:id="@+id/nav_messages"
+                android:icon="@drawable/email"
+                android:title="Mes messages" />
+
+
+        </menu>
+    </item>
+
+
+    <item android:title="Organisation">
+        <menu>
+
+            <item
+                android:id="@+id/nav_calendrier"
+                android:icon="@drawable/calendrier"
+                android:title="Calendrier" />
+
+            <item
+                android:id="@+id/nav_rappel"
+                android:icon="@drawable/rappel"
+                android:title="Mes rappels" />
+        </menu>
+    </item>
+    <item android:title="Répertoires">
+        <menu>
+            <item
+                android:id="@+id/nav_repertoire_administration"
+                android:icon="@drawable/admin"
+                android:title="Administration" />
+            <item
+                android:id="@+id/nav_repertoire_enseignants"
+                android:icon="@drawable/prof"
+                android:title="Enseignants" />
+            <item
+                android:id="@+id/nav_repertoire_soutien"
+                android:icon="@drawable/soutien"
+                android:title="Services aux élèves" />
+        </menu>
+    </item>
+    <item android:title="Paramètres">
+        <menu>
+            <item
+                android:id="@+id/nav_parametre"
+                android:icon="@drawable/parametre"
+                android:title="Paramètres" />
+
+        </menu>
+    </item>
+
+
+</menu>

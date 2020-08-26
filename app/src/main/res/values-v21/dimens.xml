@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hauteur_notification_list">60dp</dimen>
+    <dimen name="textsize_notification_list">20sp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+</resources>

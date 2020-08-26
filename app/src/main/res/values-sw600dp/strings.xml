@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">ouvert</string>
+    <string name="navigation_drawer_close">fermer</string>
+    <string name="url_website">www.polyvalentelavigne.com</string>
+    <string name="accueil_image">Image de la page d\'accueil avec logo de l\'école et information nominative en superposition</string>
+    <string name="erreur_connexion">si le répertoire ne s\'affiche pas, vérifié votre connexion internet</string>
+</resources>
