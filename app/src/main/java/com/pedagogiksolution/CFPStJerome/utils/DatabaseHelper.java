@@ -98,12 +98,7 @@ public class DatabaseHelper {
         @Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        	if(oldVersion<2){
-				db.execSQL(SQL_CREATE_MESSAGES);
-			}
-			/*if(oldVersion<3){
 
-			}*/
 			
 		}
 	}
@@ -191,7 +186,6 @@ public class DatabaseHelper {
 		try {
 			values.put(KEY_IMAGE, entity.body().bytes());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		values.put(KEY_MOIS, i);

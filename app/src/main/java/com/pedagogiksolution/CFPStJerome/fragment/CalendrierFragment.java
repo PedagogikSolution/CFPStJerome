@@ -27,12 +27,10 @@ import java.util.Map;
 public class CalendrierFragment extends Fragment {
 
     String aout,septembre, octobre, novembre, decembre, janvier, fevrier, mars, avril, mai, juin,juillet;
-    String aout2,septembre2, octobre2, novembre2, decembre2, janvier2, fevrier2, mars2, avril2, mai2, juin2,juillet2;
     CalendrierAdapter mAdapter;
     int month;
     String line;
     StringBuilder sb_aout,sb_septembre,sb_octobre,sb_novembre,sb_decembre,sb_janvier,sb_fevrier,sb_mars,sb_avril,sb_mai,sb_juin,sb_juillet;
-    StringBuilder sb_aout2,sb_septembre2,sb_octobre2,sb_novembre2,sb_decembre2,sb_janvier2,sb_fevrier2,sb_mars2,sb_avril2,sb_mai2,sb_juin2,sb_juillet2;
     FirebaseFirestore db;
     List<Fragment> fragments;
     ViewPager pager;
@@ -118,18 +116,7 @@ public class CalendrierFragment extends Fragment {
                             sb_mai = new StringBuilder();
                             sb_juin = new StringBuilder();
                             sb_juillet = new StringBuilder();
-                            sb_aout2 = new StringBuilder();
-                            sb_septembre2 = new StringBuilder();
-                            sb_octobre2 = new StringBuilder();
-                            sb_novembre2 = new StringBuilder();
-                            sb_decembre2 = new StringBuilder();
-                            sb_janvier2 = new StringBuilder();
-                            sb_fevrier2 = new StringBuilder();
-                            sb_mars2 = new StringBuilder();
-                            sb_avril2 = new StringBuilder();
-                            sb_mai2 = new StringBuilder();
-                            sb_juin2 = new StringBuilder();
-                            sb_juillet2 = new StringBuilder();
+
                             for (DocumentSnapshot document : task.getResult()) {
 
 
@@ -176,42 +163,7 @@ public class CalendrierFragment extends Fragment {
                                     case "juillet":
                                         sb_juillet.append(line);
                                         break;
-                                    case "aout2":
-                                        sb_aout2.append(line);
-                                        break;
-                                    case "septembre2":
-                                        sb_septembre2.append(line);
-                                        break;
-                                    case "octobre2":
-                                        sb_octobre2.append(line);
-                                        break;
-                                    case "novembre2":
-                                        sb_novembre2.append(line);
-                                        break;
-                                    case "decembre2":
-                                        sb_decembre2.append(line);
-                                        break;
-                                    case "janvier2":
-                                        sb_janvier2.append(line);
-                                        break;
-                                    case "fevrier2":
-                                        sb_fevrier2.append(line);
-                                        break;
-                                    case "mars2":
-                                        sb_mars2.append(line);
-                                        break;
-                                    case "avril2":
-                                        sb_avril2.append(line);
-                                        break;
-                                    case "mai2":
-                                        sb_mai2.append(line);
-                                        break;
-                                    case "juin2":
-                                        sb_juin2.append(line);
-                                        break;
-                                    case "juillet2":
-                                        sb_juillet2.append(line);
-                                        break;
+
                                 }
 
 
@@ -229,18 +181,7 @@ public class CalendrierFragment extends Fragment {
                             mai = sb_mai.toString();
                             juin = sb_juin.toString();
                             juillet = sb_juillet.toString();
-                            aout2 = sb_aout2.toString();
-                            septembre2 = sb_septembre2.toString();
-                            octobre2 = sb_octobre2.toString();
-                            novembre2 = sb_novembre2.toString();
-                            decembre2 = sb_decembre2.toString();
-                            janvier2 = sb_janvier2.toString();
-                            fevrier2 = sb_fevrier2.toString();
-                            mars2 = sb_mars2.toString();
-                            avril2 = sb_avril2.toString();
-                            mai2 = sb_mai2.toString();
-                            juin2 = sb_juin2.toString();
-                            juillet2 = sb_juillet2.toString();
+
 
                             fragments.add(CalendrierMonthFragment.newInstance(8, aout));
                             fragments.add(CalendrierMonthFragment.newInstance(9, septembre));
@@ -254,18 +195,7 @@ public class CalendrierFragment extends Fragment {
                             fragments.add(CalendrierMonthFragment.newInstance(5, mai));
                             fragments.add(CalendrierMonthFragment.newInstance(6, juin));
                             fragments.add(CalendrierMonthFragment.newInstance(7, juillet));
-                            fragments.add(CalendrierMonthFragment.newInstance(13, aout2));
-                            fragments.add(CalendrierMonthFragment.newInstance(14, septembre2));
-                            fragments.add(CalendrierMonthFragment.newInstance(15, octobre2));
-                            fragments.add(CalendrierMonthFragment.newInstance(16, novembre2));
-                            fragments.add(CalendrierMonthFragment.newInstance(17, decembre2));
-                            fragments.add(CalendrierMonthFragment.newInstance(18, janvier2));
-                            fragments.add(CalendrierMonthFragment.newInstance(19, fevrier2));
-                            fragments.add(CalendrierMonthFragment.newInstance(20, mars2));
-                            fragments.add(CalendrierMonthFragment.newInstance(21, avril2));
-                            fragments.add(CalendrierMonthFragment.newInstance(22, mai2));
-                            fragments.add(CalendrierMonthFragment.newInstance(23, juin2));
-                            fragments.add(CalendrierMonthFragment.newInstance(24, juillet2));
+
                             mAdapter = new CalendrierAdapter(getChildFragmentManager(), fragments);
 
                             pager.setAdapter(mAdapter);

@@ -41,12 +41,12 @@ public class AccueilFragment extends Fragment implements View.OnClickListener {
 
 		mContext = getActivity();
 
-		tv_courriel_accueil = view.findViewById(R.id.tv_courriel_accueil);
+
 		youtube = view.findViewById(R.id.iv_youtube);
 		facebook = view.findViewById(R.id.iv_facebook);
 		instagram = view.findViewById(R.id.iv_instagram);
 
-		tv_courriel_accueil.setOnClickListener(this);
+		
 		youtube.setOnClickListener(this);
 		facebook.setOnClickListener(this);
 		instagram.setOnClickListener(this);
@@ -69,7 +69,7 @@ public class AccueilFragment extends Fragment implements View.OnClickListener {
 		case R.id.repertoire_appel:
 
 			Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
-			phoneIntent.setData(Uri.parse("tel:450-566-7587"));
+			phoneIntent.setData(Uri.parse("tel:450-565-0006"));
 			startActivity(phoneIntent);
 			break;
 
@@ -91,28 +91,23 @@ public class AccueilFragment extends Fragment implements View.OnClickListener {
 		switch (v.getId()){
 
 			case R.id.iv_youtube:
-				mUrl = "http://www.youtube.com/channel/UC29kE8g8DUB2nwbs6UeR90w";
+				mUrl = "http://www.youtube.com/user/CEPSaintJerome";
 				mI = new Intent(Intent.ACTION_VIEW, Uri.parse(mUrl));
 				startActivity(mI);
 
 				break;
 			case R.id.iv_facebook:
-				mUrl = "http://www.facebook.com/CentreDeFormationProfessionnellePerformancePlus/";
+				mUrl = "http://www.facebook.com/formationcep/";
 				mI = new Intent(Intent.ACTION_VIEW, Uri.parse(mUrl));
 				startActivity(mI);
 				break;
 			case R.id.iv_instagram:
-				mUrl = "http://www.instagram.com/cfp_performanceplus/";
+				mUrl = "http://www.instagram.com/cep_saintjerome/";
 				mI = new Intent(Intent.ACTION_VIEW, Uri.parse(mUrl));
 				startActivity(mI);
 				break;
 
-			case R.id.tv_courriel_accueil:
-				Intent emailIntent = new Intent(Intent.ACTION_SEND);
-				emailIntent.setType("text/plain");
-				emailIntent.putExtra(Intent.EXTRA_EMAIL,new String[] {"performanceplus@csrdn.qc.ca"});
-				startActivity(emailIntent);
-				break;
+
 
 
 		}

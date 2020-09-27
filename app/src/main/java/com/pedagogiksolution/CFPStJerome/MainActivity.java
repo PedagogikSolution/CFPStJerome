@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle toggle;
     Boolean addToStack = false;
     Boolean addToStackAccueil = false;
-    static DatabaseHelper dbHelper;
+    DatabaseHelper dbHelper;
     CreateOrUpdateDatabase createOrUpdateDatabase;
     GetCalendrierFromGoogleStorage getCalendrierFromGoogleStorage;
     static SharedPreferences sharedPref;
@@ -139,9 +138,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             createOrUpdateDatabase = new CreateOrUpdateDatabase(dbHelper);
             createOrUpdateDatabase.execute();
             if (version == 0) {
-                // on récupère datastore visite pour les tutos et initialise a 0
-
-                // on create ou  update les bdd
 
 
                 db = FirebaseFirestore.getInstance();
@@ -157,12 +153,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                         String documentId = document.getId();
                                         FirebaseMessaging.getInstance().subscribeToTopic(documentId);
-                                        SharedPreferences mSharedPref = getSharedPreferences(documentId,0);
-                                        mSharedPref.getBoolean(TAG_NAME_TOPIC_ABONNEMENT,false);
-                                        SharedPreferences.Editor[] editor = new SharedPreferences.Editor[1];
-                                        editor[0] = mSharedPref.edit();
-                                        editor[0].putBoolean(TAG_NAME_TOPIC_ABONNEMENT,true);
-                                        editor[0].apply();
+                                        sharedPref = getSharedPreferences(documentId,0);
+                                        SharedPreferences.Editor editor2 = sharedPref.edit();
+                                        editor2.putBoolean(TAG_NAME_TOPIC_ABONNEMENT,true);
+                                        editor2.apply();
+
+
                                     }
                                 }
 
@@ -201,12 +197,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                         String documentId = document.getId();
                                         FirebaseMessaging.getInstance().subscribeToTopic(documentId);
-                                        SharedPreferences mSharedPref = getSharedPreferences(documentId, 0);
-                                        mSharedPref.getBoolean(TAG_NAME_TOPIC_ABONNEMENT, false);
-                                        SharedPreferences.Editor[] editor = new SharedPreferences.Editor[1];
-                                        editor[0] = mSharedPref.edit();
-                                        editor[0].putBoolean(TAG_NAME_TOPIC_ABONNEMENT, true);
-                                        editor[0].apply();
+                                        sharedPref = getSharedPreferences(documentId,0);
+                                        SharedPreferences.Editor editor2 = sharedPref.edit();
+                                        editor2.putBoolean(TAG_NAME_TOPIC_ABONNEMENT,true);
+                                        editor2.apply();
                                     }
 
                             }
@@ -300,6 +294,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_nouvelles:
                 cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 
+                if (cm != null){
                 activeNetwork = cm.getActiveNetworkInfo();
                 isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
@@ -315,13 +310,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     dialogueFragment.show(getSupportFragmentManager(), "dialog");
 
                 }
-
+                }
                 break;
           case R.id.nav_notification:
 
 
               cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-
+              if (cm != null){
               activeNetwork = cm.getActiveNetworkInfo();
               isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
@@ -339,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                   dialogueFragment.show(getSupportFragmentManager(), "dialog");
 
               }
-
+              }
 
 
 
@@ -348,63 +343,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_repertoire_administration:
                 cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (cm != null) {
+                    activeNetwork = cm.getActiveNetworkInfo();
+                    isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-                activeNetwork = cm.getActiveNetworkInfo();
-                isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+                    if (isConnected) {
+                        newFragment = new RepertoireAdminFragment();
+                        toolbar.setTitle("Répertoire administration");
+                        openFragment(newFragment, addToStack);
+                    } else {
+                        DialogFragment dialogueFragment = new DialogueFragment();
+                        Bundle mType = new Bundle();
+                        mType.putInt("dialogType", 2);
+                        dialogueFragment.setArguments(mType);
+                        dialogueFragment.show(getSupportFragmentManager(), "dialog");
 
-                if (isConnected) {
-                    newFragment = new RepertoireAdminFragment();
-                    toolbar.setTitle("Répertoire administration");
-                    openFragment(newFragment, addToStack);
-                } else {
-                    DialogFragment dialogueFragment = new DialogueFragment();
-                    Bundle mType = new Bundle();
-                    mType.putInt("dialogType", 2);
-                    dialogueFragment.setArguments(mType);
-                    dialogueFragment.show(getSupportFragmentManager(), "dialog");
-
+                    }
                 }
 
                 break;
             case R.id.nav_repertoire_enseignants:
                 cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (cm != null) {
+                    activeNetwork = cm.getActiveNetworkInfo();
+                    isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-                activeNetwork = cm.getActiveNetworkInfo();
-                isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+                    if (isConnected) {
+                        newFragment = new RepertoireEnseignantFragment();
+                        toolbar.setTitle("Les enseignants");
+                        openFragment(newFragment, addToStack);
+                    } else {
+                        DialogFragment dialogueFragment = new DialogueFragment();
+                        Bundle mType = new Bundle();
+                        mType.putInt("dialogType", 2);
+                        dialogueFragment.setArguments(mType);
+                        dialogueFragment.show(getSupportFragmentManager(), "dialog");
 
-                if (isConnected) {
-                    newFragment = new RepertoireEnseignantFragment();
-                    toolbar.setTitle("Les enseignants");
-                    openFragment(newFragment, addToStack);
-                } else {
-                    DialogFragment dialogueFragment = new DialogueFragment();
-                    Bundle mType = new Bundle();
-                    mType.putInt("dialogType", 2);
-                    dialogueFragment.setArguments(mType);
-                    dialogueFragment.show(getSupportFragmentManager(), "dialog");
-
+                    }
                 }
-
                 break;
             case R.id.nav_repertoire_soutien:
                 cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (cm != null) {
+                    activeNetwork = cm.getActiveNetworkInfo();
+                    isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-                activeNetwork = cm.getActiveNetworkInfo();
-                isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+                    if (isConnected) {
+                        newFragment = new RepertoireSoutienFragment();
+                        toolbar.setTitle("Services aux élèves");
+                        openFragment(newFragment, addToStack);
+                    } else {
+                        DialogFragment dialogueFragment = new DialogueFragment();
+                        Bundle mType = new Bundle();
+                        mType.putInt("dialogType", 2);
+                        dialogueFragment.setArguments(mType);
+                        dialogueFragment.show(getSupportFragmentManager(), "dialog");
 
-                if (isConnected) {
-                    newFragment = new RepertoireSoutienFragment();
-                    toolbar.setTitle("Services aux élèves");
-                    openFragment(newFragment, addToStack);
-                } else {
-                    DialogFragment dialogueFragment = new DialogueFragment();
-                    Bundle mType = new Bundle();
-                    mType.putInt("dialogType", 2);
-                    dialogueFragment.setArguments(mType);
-                    dialogueFragment.show(getSupportFragmentManager(), "dialog");
-
+                    }
                 }
-
                 break;
 
 
@@ -435,8 +431,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 newFragment = new AccueilFragment();
                 toolbar.setTitle(R.string.app_name);
-                addToStack = false;
-                openFragment(newFragment, addToStack);
+                openFragment(newFragment, false);
 
         }
 
@@ -446,12 +441,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -477,13 +466,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         } else {
             if (mRecentlyBackPressed) {
-                if(mExitHandler!=null){
                 mExitHandler.removeCallbacks(mExitRunnable);
-                mExitHandler = null;
-                    mRecentlyBackPressed = false;
-                super.onBackPressed();}
-            } else if (!mRecentlyBackPressed
-                    || getSupportFragmentManager().getBackStackEntryCount() != 0) {
+                mRecentlyBackPressed = false;
+                super.onBackPressed();
+            } else {
                 mRecentlyBackPressed = true;
                 Toast.makeText(
                         this,
@@ -506,13 +492,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
 
-
-        return super.onOptionsItemSelected(item);
-
-    }
 
 
     @Override
@@ -568,7 +548,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private static class GetCalendrierFromGoogleStorage extends AsyncTask<Void, Void, Void> {
+    private class GetCalendrierFromGoogleStorage extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -718,133 +698,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 e.printStackTrace();
             }
 
-         // deuxième année
 
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_AOUT2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(13, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_SEPTEMBRE2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(14, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_OCTOBRE2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(15, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_NOVEMBRE2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(16, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_DECEMBRE2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(17, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_JANVIER2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(18, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_FEVRIER2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(19, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_MARS2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(20, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_AVRIL2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(21, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_MAI2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(22, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_JUIN2)
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                dbHelper.insertCalendrierImage(23, response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            request = new Request.Builder()
-                    .url(Constants.CALENDRIER_JUILLET2)
-                    .build();
 
             try {
                 Response response = client.newCall(request).execute();

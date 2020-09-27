@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pedagogiksolution.CFPStJerome.R;
 import com.pedagogiksolution.CFPStJerome.adapter.NouvelleListViewAdapter;
@@ -46,7 +47,7 @@ public class NouvelleFragment extends Fragment implements OnItemClickListener {
 		dataModels= new ArrayList<>();
 		listView=v.findViewById(R.id.list);
 		db = FirebaseFirestore.getInstance();
-		db.collection("nouvelles")
+		db.collection("nouvelles").orderBy("date", Query.Direction.DESCENDING)
 				.get()
 				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 					@Override

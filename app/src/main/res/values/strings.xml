@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CFP St-Jerôme</string>
+    <string name="app_name">CEP St-Jerôme</string>
    <string name="drawer_open">Ouvert</string>
     <string name="drawer_close">Fermé</string>
     <string name="app_not_available">Désolé, la connection internet est impossible présentement</string>
@@ -10,24 +10,23 @@
     <string name="sp2">Besoin de réussir ton cours d\'histoire en secondaire 4. Télécharge notre application Histoire du Québec</string>
     <string name="sp_bt1">www.solutionpedagogik.com</string>
     <string name="sp_bt2">Voir sur le Google Play Store</string>
-    <string name="gestion_horaire1">Activez des notifications pour vous rappeler votre horaire à différents moments</string>
     <string name="default_notification_channel_id">fcm_default_channel</string>
     <string name="default_notification_channel_name">Tous</string>
     <string name="navigation_drawer_open">ouvert</string>
     <string name="navigation_drawer_close">fermer</string>
-    <string name="url_website">www.cfpperformanceplus.com</string>
+    <string name="url_website">www.formationcep.com</string>
     <string name="premiere_visite">premiere_visite</string>
     <string name="newsUrlDisclaimer"> --> Cliquez ici pour récupérer la pièce jointe ou visiter le site associé</string>
     <string name="erreur_url">L\'Adresse web n\'est pas valide, contacter le responsable de l\'envoie de la notification pour lui signaler</string>
     <string name="courriel_accueil">Courriel : <u>performanceplus@csrdn.qc.ca</u></string>
-    <string name="ic_launcher_name">Performance +</string>
+    <string name="ic_launcher_name">CEP St-Jerôme</string>
     <string name="messageDesabo">Vous êtes correctement désabonné</string>
     <string name="messageAbo">Vous êtes correctement abonné</string>
     <string name="empty_message">Il n\'y a aucun messages sauvegardés pour l\'instant</string>
     <string name="accueil_image">Image de la page d\'accueil avec logo de l\'école et information nominative en superposition</string>
-    <string name="adresse">462, avenue Argenteuil</string>
-    <string name="lachute_qc_j8h_1w9">St-Jerôme, QC, J8H 1W9</string>
-    <string name="téléphone">Téléphone : 450–566-PLUS (7587)</string>
+    <string name="adresse">917, montée Saint-Nicolas</string>
+    <string name="lachute_qc_j8h_1w9">St-Jerôme, QC, J5L 2P4</string>
+    <string name="téléphone">Téléphone : 450-565-0006</string>
     <string name="erreur_connexion">si le répertoire ne s\'affiche pas, vérifié votre connexion internet</string>
 
 </resources>

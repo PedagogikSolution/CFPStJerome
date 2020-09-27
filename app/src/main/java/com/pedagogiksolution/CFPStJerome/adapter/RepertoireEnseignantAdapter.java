@@ -70,21 +70,57 @@ private static class ViewHolder {
     int mDrawableId;
 
      switch(matiere){
-        case "SASI/APED":
-            mDrawableId= R.drawable.ic_sasi_aped;
+        case "Adjoint Administratif":
+            mDrawableId= R.drawable.ic_adjoint_adminitratif;
             break;
-        case "Secrétariat/Comptabilité":
-            mDrawableId= R.drawable.ic_secretariat_comptabilite;
+        case "Dessin Industriel":
+            mDrawableId= R.drawable.ic_dessin_technique;
             break;
-        case "Assistance dentaire":
-            mDrawableId= R.drawable.ic_assistance_dentaire;
+        case "Représentation":
+            mDrawableId= R.drawable.ic_representation;
             break;
-        case "MICE/ESA":
-            mDrawableId= R.drawable.ic_mice_esa;
+        case "Vente-Conseil":
+            mDrawableId= R.drawable.ic_vente_conseil;
             break;
-        case "Assistance technique en pharmacie":
-            mDrawableId= R.drawable.ic_assistance_pharmacie;
+        case "Électricité":
+            mDrawableId= R.drawable.ic_electricite;
             break;
+         case "Carrosserie":
+             mDrawableId= R.drawable.ic_carrosserie;
+             break;
+         case "Électromécanique de systèmes automatisés":
+             mDrawableId= R.drawable.ic_electromecanique;
+             break;
+         case "Soudage-Montage":
+             mDrawableId= R.drawable.ic_soudage;
+             break;
+         case "Esthétique automobile":
+             mDrawableId= R.drawable.ic_esthetique_auto;
+             break;
+         case "Mécanique automobile":
+             mDrawableId= R.drawable.ic_mecanique_auto;
+             break;
+         case "Secrétariat":
+             mDrawableId= R.drawable.ic_secretariat;
+             break;
+         case "Conseil et vente de pièces d'équipement motorisé":
+             mDrawableId= R.drawable.ic_conseil_vente_auto;
+             break;
+         case "Comptabilité":
+             mDrawableId= R.drawable.ic_comptabilite;
+             break;
+         case "Lancement d'une entreprise":
+             mDrawableId= R.drawable.ic_entreprise;
+             break;
+         case "Technique d'usinage":
+             mDrawableId= R.drawable.ic_technique_usinage;
+             break;
+         case "Tôlerie de précision":
+             mDrawableId= R.drawable.ic_tolerie;
+             break;
+         case "Ferblanterie":
+             mDrawableId= R.drawable.ic_ferblantier;
+             break;
 
          default: mDrawableId=R.drawable.horaire_icone_adapt;
 
