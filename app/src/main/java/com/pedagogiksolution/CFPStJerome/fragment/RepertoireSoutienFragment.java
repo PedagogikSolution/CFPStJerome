@@ -50,7 +50,7 @@ public class RepertoireSoutienFragment extends Fragment implements OnItemClickLi
 		dataModels= new ArrayList<>();
 		listView=(ListView) v.findViewById(R.id.list);
 		db = FirebaseFirestore.getInstance();
-		db.collection("repertoireSoutien").orderBy("rang")
+		db.collection("repertoireSoutien").orderBy("nom")
 				.get()
 				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 					@Override
@@ -122,7 +122,7 @@ public class RepertoireSoutienFragment extends Fragment implements OnItemClickLi
 			case R.id.repertoire_appel:
 
 				Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
-				phoneIntent.setData(Uri.parse("tel:450-566-7587"));
+				phoneIntent.setData(Uri.parse("tel:450–565-0006"));
 				startActivity(phoneIntent);
 				break;
 

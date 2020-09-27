@@ -17,9 +17,11 @@ import androidx.fragment.app.Fragment;
 
 import com.pedagogiksolution.CFPStJerome.R;
 
+import java.util.Objects;
+
 
 public class SolutionPedagogikFragment extends Fragment implements OnClickListener {
-	Button bt1,bt2;
+	Button bt1;
 	View v;
 	Intent mI;
 	TextView tvSpVersion;
@@ -38,16 +40,14 @@ public class SolutionPedagogikFragment extends Fragment implements OnClickListen
 		super.onActivityCreated(savedInstanceState);
 		tvSpVersion = (TextView) v.findViewById(R.id.tvSpVersion);
 		bt1 = (Button) v.findViewById(R.id.bt_sp1);
-		bt2 = (Button) v.findViewById(R.id.bt_sp2);
 		bt1.setOnClickListener(this);
-		bt2.setOnClickListener(this);
 		try {
-			pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+			pInfo = Objects.requireNonNull(getActivity()).getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
 		} catch (NameNotFoundException e) {			
 			e.printStackTrace();
 		}
 		String version_info = pInfo.versionName;
-		tvSpVersion.setText("Version "+version_info);
+		tvSpVersion.setText(getString(R.string.versionText)+version_info);
 
 	}
 
@@ -56,15 +56,9 @@ public class SolutionPedagogikFragment extends Fragment implements OnClickListen
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId()){
-		case R.id.bt_sp1:
-			mI = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.solutionpedagogik.com"));
+		if (v.getId() == R.id.bt_sp1) {
+			mI = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.solutionpedagogik.com"));
 			startActivity(mI);
-			break;
-		case R.id.bt_sp2:
-			mI = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.pedagogiksolution.histoireqc4"));
-			startActivity(mI);
-			break;
 		}
 		
 	}

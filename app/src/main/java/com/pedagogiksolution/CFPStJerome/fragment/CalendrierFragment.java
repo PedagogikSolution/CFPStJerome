@@ -130,6 +130,7 @@ public class CalendrierFragment extends Fragment {
                             sb_mai2 = new StringBuilder();
                             sb_juin2 = new StringBuilder();
                             sb_juillet2 = new StringBuilder();
+
                             for (DocumentSnapshot document : task.getResult()) {
 
 
@@ -212,6 +213,7 @@ public class CalendrierFragment extends Fragment {
                                     case "juillet2":
                                         sb_juillet2.append(line);
                                         break;
+
                                 }
 
 
@@ -242,6 +244,7 @@ public class CalendrierFragment extends Fragment {
                             juin2 = sb_juin2.toString();
                             juillet2 = sb_juillet2.toString();
 
+
                             fragments.add(CalendrierMonthFragment.newInstance(8, aout));
                             fragments.add(CalendrierMonthFragment.newInstance(9, septembre));
                             fragments.add(CalendrierMonthFragment.newInstance(10, octobre));
@@ -266,6 +269,7 @@ public class CalendrierFragment extends Fragment {
                             fragments.add(CalendrierMonthFragment.newInstance(22, mai2));
                             fragments.add(CalendrierMonthFragment.newInstance(23, juin2));
                             fragments.add(CalendrierMonthFragment.newInstance(24, juillet2));
+
                             mAdapter = new CalendrierAdapter(getChildFragmentManager(), fragments);
 
                             pager.setAdapter(mAdapter);

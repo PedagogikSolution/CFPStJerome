@@ -22,6 +22,10 @@
                 android:id="@+id/nav_messages"
                 android:icon="@drawable/email"
                 android:title="Mes messages" />
+            <item
+                android:id="@+id/nav_covid"
+                android:icon="@drawable/covid"
+                android:title="Covid" />
 
 
         </menu>

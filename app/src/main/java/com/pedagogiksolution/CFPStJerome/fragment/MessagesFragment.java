@@ -1,16 +1,12 @@
 package com.pedagogiksolution.CFPStJerome.fragment;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -93,45 +89,13 @@ public class MessagesFragment extends ListFragment implements AdapterView.OnItem
 	}
 
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		// TODO Auto-generated method stub
-		super.onCreateOptionsMenu(menu, inflater);
-
-		inflater.inflate(R.menu.main, menu);
-	}
 
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()) {
-			case R.id.ajouter_rappel :
-				Fragment fragment = new RappelsAjoutFragment();
-				FragmentManager fragmentManager = getFragmentManager();
-				fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-				break;
-			case R.id.delete_rappel :
-				builder = new AlertDialog.Builder(getActivity());
-				builder.setTitle("INFORMATION");
-				builder.setMessage("Pour détruire un message, vous n'avez qu'à appuyer longuement sur la fiche de celui-ci");
-				builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-					}
-				});
-				builder2=builder.create();
-				builder2.show();
-
-				break;
-		}
-		return true;
-	}
 
 
-	@Override
-	public void onPrepareOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		super.onPrepareOptionsMenu(menu);
-	}
+
+
+
 
 	@Override
 	public void onPause() {
