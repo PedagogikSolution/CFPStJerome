@@ -6,8 +6,10 @@ public class NotificationsBean implements Serializable {
 
     private String categorie;
     private String segment;
+    private int rang;
     private String documentId;
     private boolean section;
+    private String code;
 
     public String getCategorie() {
         return categorie;
@@ -23,6 +25,14 @@ public class NotificationsBean implements Serializable {
 
     public void setSegment(String segment) {
         this.segment = segment;
+    }
+
+    public int getRang() {
+        return rang;
+    }
+
+    public void setRang(int rang) {
+        this.rang = rang;
     }
 
     public String getDocumentId() {
@@ -41,4 +51,11 @@ public class NotificationsBean implements Serializable {
         this.section = section;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
